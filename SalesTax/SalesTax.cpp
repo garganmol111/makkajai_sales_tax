@@ -5,8 +5,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm>
-#include "strtk.hpp"
+#include <algorithm>s
 #include <cstring>
 #include <boost/tokenizer.hpp>
 #include "ShoppingBasket.h"

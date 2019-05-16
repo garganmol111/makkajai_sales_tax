@@ -87,13 +87,15 @@ void Item::calculateTaxRate() {
 
 //Calculates the tax amount per item
 void Item::calculateTaxAmount() {
-	if (taxRate == 0.0)	taxAmount = 0.0;
+	if (taxRate == 0.0) { taxAmount = 0.0; return; }
 	else  taxAmount = itemPrice * taxRate / 100.0;
+	taxAmount = round(taxAmount);
 }
 
 //Calculates the final price after sales tax per item
 void Item::calculateFinalPrice() {
 	finalPrice = itemPrice + taxAmount;
+	//finalPrice = std::roundf(finalPrice * 100) / 100;
 }
 
 void Item::findItemCategory(std::string itemName) {
@@ -111,6 +113,17 @@ void Item::findItemCategory(std::string itemName) {
 	}
 }
 
+double Item::round(double amt) {
+	
+	int x = (int)(amt*10);
+	double temp = (amt * 10) - (x);
+	if (temp < 0.25)	temp = 0.0;
+	else if (temp >= 0.25 && temp <= 0.50)	temp = 0.5;
+	else	temp = 1.0;
+
+	return (temp + (double)x) / 10;
+
+}
 #pragma endregion
 
 

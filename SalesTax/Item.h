@@ -19,6 +19,7 @@ private:
 	void calculateTaxAmount();
 	void calculateFinalPrice();
 	void findItemCategory(std::string);
+	double round(double);
 
 public:
 
